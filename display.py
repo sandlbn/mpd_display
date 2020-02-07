@@ -73,14 +73,17 @@ while True:
                 st["state"], st["volume"], parse_audio(st['audio']))
             lcd.message(line, 1)
             lcd.message("{0}".format(show_time(st)), 2)
+            if cur_art != current_song(current)[1]:
+                cur_art_idx = 0
+                cur_song_idx = 0
             cur_song = current_song(current)[0]
             cur_art = current_song(current)[1]
-            cur_song, song_new_idx = display_text(cur_song, cur_song_idx)
-            cur_art, art_new_idx = display_text(cur_art, cur_art_idx)
+            disp_song, song_new_idx = display_text(cur_song, cur_song_idx)
+            disp_art, art_new_idx = display_text(cur_art, cur_art_idx)
             cur_song_idx = song_new_idx
             cur_art_idx = art_new_idx
-            lcd.message(cur_song, 3)
-            lcd.message(cur_art, 4)
+            lcd.message(disp_song, 3)
+            lcd.message(disp_art, 4)
         except KeyError:
             pass
     else:
