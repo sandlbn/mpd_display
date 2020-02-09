@@ -40,7 +40,7 @@ def parse_audio(audio):
 
 def current_song(current):
     try:
-        return (current['artist'], current['title'])
+        return (current['artist'], "{0} - {1}".format(current['title'], current.get('album', "")))
     except KeyError:
         return (current['name'], current['title'])
 
