@@ -103,6 +103,10 @@ class LCD:
         else:
             raise ValueError('line number must be 1 or 2')
 
+        
+
+        if type(string) == list:
+            string = string[0]
         string = string.ljust(self.LCD_WIDTH, " ")
 
         self.lcd_byte(lcd_line, self.LCD_CMD)

@@ -16,10 +16,10 @@ def display_long_text(from_ch, txt):
 
 
 def display_text(txt, prev_pos=0):
-    if len(txt) >= DISP_LEN:
+    if len(txt) > DISP_LEN:
         if prev_pos == 0:
             return display_long_text(prev_pos, txt), prev_pos+1
-        elif DISP_LEN == (len(txt)-prev_pos):
+        elif DISP_LEN-1 == (len(txt)-prev_pos):
             return display_long_text(prev_pos, txt), 0
         else:
             return display_long_text(prev_pos, txt), prev_pos+1
